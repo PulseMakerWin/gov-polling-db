@@ -48,7 +48,7 @@ const mainnet = {
   name: 'mainnet',
   processorSchema: 'vulcan2x',
   extractedSchema: 'extracted',
-  startingBlock: 4620855,
+  startingBlock: 16470000,
   chain: {
     name: 'mainnet',
     host: CHAIN_HOST_L1,
@@ -174,6 +174,19 @@ if (process.env.VL_CONFIG_NAME === 'multi') {
 } else if (process.env.VL_CONFIG_NAME === 'multi_tenderly') {
   console.log('Using Tenderly multi-chain config');
   config = [mainnet, arbitrumTestnet];
+} else if (process.env.VL_CONFIG_NAME === 'mainnet') {
+  console.log('Using Mainnet single-chain config');
+  config = [mainnet];
+} else {
+  console.log('No valid configuration specified, defaulting to mainnet');
+  config = [mainnet];
 }
 
-module.exports.default = config;
+// Set up the module exports with both standard and default export
+Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "default", {
+    enumerable: true,
+    value: config
+});
+
+module.exports = exports;
