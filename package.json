@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start-etl": "node -r ./loadenv.js ./node_modules/@makerdao-dux/spock-etl/dist/bin/etl ./config.js",
+    "start-etl": "node -r ./loadenv.js ./node_modules/@makerdao-dux/spock-etl/dist/bin/etl.js ./config.js",
     "start-sync": "yarn migrate",
     "migrate:only": "node -r ./loadenv.js ./node_modules/@makerdao-dux/spock-etl/dist/bin/migrate ./config.js",
     "migrate": "yarn migrate:only && yarn insert-poll-creators",
@@ -21,6 +21,7 @@
     "@makerdao-dux/spock-utils": "^0.2.0",
     "bignumber.js": "^9.0.2",
     "consola": "^2.15.3",
+    "dotenv": "^16.4.5",
     "dotenv-flow": "^2.0.0",
     "ethers": "krzkaczor/ethers.js#kk/get-logs-multiple-address-build",
     "pg-promise": "10.11.1"
